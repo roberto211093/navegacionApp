@@ -4,7 +4,6 @@ import {
   DrawerContentComponentProps,
   DrawerContentScrollView,
 } from '@react-navigation/drawer';
-import StackNavigation from './StackNavigation';
 import SettingsScreen from '../screens/SettingsScreen';
 import {
   useWindowDimensions,
