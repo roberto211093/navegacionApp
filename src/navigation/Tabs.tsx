@@ -7,6 +7,7 @@ import TopTab from './TopTab';
 import StackNavigation from './StackNavigation';
 import {colores} from '../theme/appTheme';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const Tab =
   Platform.OS === 'ios'
@@ -36,21 +37,25 @@ const Tabs = () => {
           let iconName: string = '';
           switch (route.name) {
             case 'Tab1Screen':
-              iconName = 'T1';
+              iconName = 'page-first';
               break;
 
             case 'TopTab':
-              iconName = 'T2';
+              iconName = 'play';
               break;
 
             case 'StackNavigation':
-              iconName = 'ST';
+              iconName = 'page-last';
               break;
 
             default:
               break;
           }
-          return <Text style={{color}}>{iconName}</Text>;
+          return (
+            <Text style={{color}}>
+              <Icon name={iconName} size={30} color={colores.primary} />
+            </Text>
+          );
         },
       })}
       // eslint-disable-next-line react-native/no-inline-styles

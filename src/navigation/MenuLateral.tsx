@@ -13,6 +13,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import {globalStyles} from '../theme/appTheme';
+import Icon from 'react-native-vector-icons/Ionicons';
 import Tabs from './Tabs';
 
 const Drawer = createDrawerNavigator();
@@ -37,13 +38,23 @@ const MenuLateral = () => {
           <TouchableOpacity
             style={globalStyles.opcionesMenu}
             onPress={() => navigation.navigate('Tabs')}>
-            <Text style={globalStyles.opcionesMenuTxt}>Home</Text>
+            <Text style={globalStyles.opcionesMenuTxt}>
+              <Icon name="home" size={30} />
+            </Text>
+            <Text style={globalStyles.opcionesMenuTxt}>
+              Home
+            </Text>
           </TouchableOpacity>
 
           <TouchableOpacity
             style={globalStyles.opcionesMenu}
             onPress={() => navigation.navigate('SettingsScreen')}>
-            <Text style={globalStyles.opcionesMenuTxt}>Ajustes</Text>
+            <Text style={globalStyles.opcionesMenuTxt}>
+              <Icon name="settings" size={30} style={{marginHorizontal: 2}} />
+            </Text>
+            <Text style={globalStyles.opcionesMenuTxt}>
+              Ajustes
+            </Text>
           </TouchableOpacity>
         </View>
       </DrawerContentScrollView>

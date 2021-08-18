@@ -39,8 +39,10 @@ export const globalStyles = StyleSheet.create({
   },
   opcionesMenu: {
     marginVertical: 10,
+    flexDirection: 'row',
   },
   opcionesMenuTxt: {
     fontSize: 20,
+    marginHorizontal: 5,
   },
 });

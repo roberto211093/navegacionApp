@@ -1,8 +1,10 @@
 import React, {useEffect} from 'react';
 import {DrawerScreenProps} from '@react-navigation/drawer';
 import {Button, Text, TouchableOpacity, View} from 'react-native';
-import {globalStyles} from '../theme/appTheme';
+import {colores, globalStyles} from '../theme/appTheme';
 import {DrawerActions} from '@react-navigation/native';
+import Icon from 'react-native-vector-icons/Ionicons';
+import IconMaterial from 'react-native-vector-icons/MaterialCommunityIcons';
 
 interface Props extends DrawerScreenProps<any, any> {}
 
@@ -11,10 +13,13 @@ const Pagina1Screen = ({navigation}: Props) => {
     navigation.setOptions({
       headerLeft: () => {
         return (
-          <Button
-            title="Menu"
-            onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}
-          />
+          <TouchableOpacity
+            style={{marginLeft: 15}}
+            onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}>
+            <Text>
+              <Icon name="menu" size={30} color={colores.primary} />
+            </Text>
+          </TouchableOpacity>
         );
       },
     });
@@ -46,7 +51,10 @@ const Pagina1Screen = ({navigation}: Props) => {
               name: 'Roberto',
             })
           }>
-          <Text style={globalStyles.btnBigTxt}>Roberto</Text>
+          <Text style={globalStyles.btnBigTxt}>
+            <IconMaterial name="human-male" size={30} color="#fff" />
+            Roberto
+          </Text>
         </TouchableOpacity>
 
         <TouchableOpacity
@@ -57,7 +65,10 @@ const Pagina1Screen = ({navigation}: Props) => {
               name: 'Keysla',
             })
           }>
-          <Text style={globalStyles.btnBigTxt}>Keysla</Text>
+          <Text style={globalStyles.btnBigTxt}>
+            <IconMaterial name="human-female" size={30} color="#fff" />
+            Keysla
+          </Text>
         </TouchableOpacity>
       </View>
     </View>
