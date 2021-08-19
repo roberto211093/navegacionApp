@@ -1,15 +1,28 @@
-import React from 'react';
-import {View, Text} from 'react-native';
+import React, {useContext} from 'react';
+import {View, Text, Button} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import {globalStyles} from '../theme/appTheme';
+import {colores, globalStyles} from '../theme/appTheme';
+import {AuthContext} from '../context/authContext/AuthContext';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const SettingsScreen = () => {
   const insets = useSafeAreaInsets();
-  console.log('insets', insets);
+  const {authState, signIn, signOut} = useContext(AuthContext);
 
   return (
     <View style={{marginTop: insets.top}}>
       <Text style={globalStyles.title}>SettingsScreen</Text>
+      <Text style={globalStyles.title}>
+        {JSON.stringify(authState, null, 3)}
+      </Text>
+
+      <Button
+        title={authState.isLoggedIn ? 'Cerrar sesión' : 'Iniciar sesión'}
+        onPress={() => (authState.isLoggedIn ? signOut() : signIn())}
+      />
+      {authState.favoriteIcon && (
+        <Icon name={authState.favoriteIcon} size={50} color={colores.primary} />
+      )}
     </View>
   );
 };

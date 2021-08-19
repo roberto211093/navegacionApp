@@ -41,9 +41,7 @@ const MenuLateral = () => {
             <Text style={globalStyles.opcionesMenuTxt}>
               <Icon name="home" size={30} />
             </Text>
-            <Text style={globalStyles.opcionesMenuTxt}>
-              Home
-            </Text>
+            <Text style={globalStyles.opcionesMenuTxt}>Home</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
@@ -52,9 +50,7 @@ const MenuLateral = () => {
             <Text style={globalStyles.opcionesMenuTxt}>
               <Icon name="settings" size={30} style={{marginHorizontal: 2}} />
             </Text>
-            <Text style={globalStyles.opcionesMenuTxt}>
-              Ajustes
-            </Text>
+            <Text style={globalStyles.opcionesMenuTxt}>Ajustes</Text>
           </TouchableOpacity>
         </View>
       </DrawerContentScrollView>

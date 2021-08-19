@@ -1,8 +1,9 @@
-import React, {useEffect} from 'react';
+import React, {useContext, useEffect} from 'react';
 import {StackScreenProps} from '@react-navigation/stack';
 import {View, Text} from 'react-native';
 import {globalStyles} from '../theme/appTheme';
 import {RootStackParams} from '../navigation/StackNavigation';
+import {AuthContext} from '../context/authContext/AuthContext';
 
 //interface RouterParams {
 //  id: number;
@@ -15,10 +16,17 @@ const PersonaScreen = ({navigation, route}: Props) => {
   //const params = route.params as RouterParams;
   const params = route.params;
 
+  const {updateUserName} = useContext(AuthContext);
+
   useEffect(() => {
     navigation.setOptions({
       title: params.name,
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    updateUserName(params.name);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
